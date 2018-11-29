@@ -1,14 +1,806 @@
-
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
-// Variables
-@import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import 'variables';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+body {
+  font-style: $def-fsize;
+  position: relative;
+  font-family: 'NotoSans';
+  color: $def-color;
+
+  header {
+    @include header_footer();
+    position: absolute;
+    transition: .5s;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    right: 0;
+    left: 0;
+  }
+
+  .home {
+    //padding-top: 300px;
+    background: url('../images/hello.jpg') no-repeat top center;
+    padding-bottom: 20px;
+    background-size: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+      .welcome-text {
+        .hello {
+          .p {
+            font-size: 1.750em;
+
+            .smaller {
+              font-size: 0.75em;
+            }
+          }
+        }
+
+        .name {
+          margin: 15px 0;
+
+          .p {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 3.250em;
+
+            .d {
+              letter-spacing: 4px;
+            }
+          }
+        }
+
+        .spec-on {
+          margin-bottom: 10px;
+
+          .p {
+            font-family: 'Merriewether';
+            font-size: 1.875em;
+          }
+        }
+
+        .text-about {
+          .p {
+            color: lighten($def-color, 30%);
+          }
+        }
+      }
+
+      .buttons {
+        @include buttons(100%, 20px -15px 0);
+      }
+    }
+  }
+
+  .about-me {
+    padding: 40px 0;
+
+    .title-gen {
+      @include title-gen(2em);
+    }
+
+    .pod-title {
+      @include pod-title(1.125em);
+    }
+
+    .description {
+      @include description(80%, 15px auto 0, 0.95em, center);
+      margin-bottom: 60px;
+    }
+
+    .skills {
+      margin-bottom: 50px;
+
+      .skill-bar {
+        p {
+          margin-bottom: 15px;
+        }
+
+        .progressbar {
+          position: relative;
+          width: 100%;
+          height: 3px;
+          background-color: #eeeeee;
+
+          .bar {
+            position: absolute;
+            top: 0;
+            width: 0px;
+            transition: all 2s;
+            left: 0;
+            height: 100%;
+            animation-duration: 2s;
+          }
+
+          .label {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            font-weight: 500;
+            transition: all 2s;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+
+            &::before {
+              position: absolute;
+              content: '';
+              bottom: -10px;
+              left: 50%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+              width: 10px;
+              height: 10px;
+              border-top: 6px solid #fff;
+              border-bottom: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-left: 5px solid transparent;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  .service {
+    background: #f8f6ff;
+    padding: 60px 0;
+    .services{
+      margin: 70px 0;
+      .card{
+        color: #ffffff;
+        min-height: 460px;
+        border: none;
+        text-align: center;
+        padding: 30px 10px;
+        cursor: default;
+        transition: .3s;
+        .icon {
+          margin: 0 auto;
+          border: 2px solid #fff;
+          border-radius: 50%;
+          padding: 20px;
+          width: 30%;
+        }
+        .card-body{
+          .title{
+            @include title-gen(1.5em);
+            margin-bottom: 20px;
+            .p1{
+              color: #ffffff;
+            }
+          }
+        }
+        .foot-card{
+          .price-block{
+            margin: 0 auto;
+            border: 4px solid white;
+            width: 50%;
+            p{
+              margin: 0;
+              line-height: 1.5;
+              padding: 0;
+              font-weight: 700;
+              font-size: 2em;
+              color: white;
+              font-family: 'Merriewether';
+            }
+          }
+        }
+        &:hover{
+          margin-top: -15px;
+        }
+        &.c-1{
+          background-image: linear-gradient(to bottom left, $html-c, darken($html-c, 4%));
+          box-shadow: 0px 0px 47px -10px rgba(110, 65, 255, 0.75);
+        }
+        &.c-2 {
+          background-image: linear-gradient(to bottom left, $js-c, darken($js-c, 18%));
+          box-shadow: 0px 0px 47px -10px rgba(254, 189, 89, 0.75);
+        }
+        &.c-3 {
+          background-image: linear-gradient(to bottom left, $purple, darken($purple, 28%));
+          box-shadow: 0px 0px 47px -10px rgba(43, 221, 189, 0.75);
+        }
+      }
+    }
+  }
+  .benefits {
+    padding: 50px 0;
+
+    .title {
+      @include title-gen();
+      margin-bottom: 30px;
+    }
+
+    .benefit {
+      .ser-item {
+        padding: 50px 0;
+        box-shadow: 0px 0px 40px -21px rgba(0, 0, 0, 0.75);
+
+        .icon {
+          width: 20%;
+          margin: 0 auto;
+
+          i {
+            font-style: 3em;
+            color: $purple;
+          }
+        }
+
+        .title {
+          margin-top: 15px;
+          @include title-gen(1.5em);
+        }
+
+        .text {
+          width: 80%;
+          margin: 30px auto;
+          @include pod-title(1em);
+        }
+
+        .buttons {
+          @include buttons(60%);
+        }
+      }
+    }
+
+
+  }
+
+  .portfolio{
+    background: #f8f6ff;
+    padding: 50px 0;
+    .works{
+      margin-top: 60px;
+      .item{
+        box-shadow: -9px 11px 47px -27px rgba(0, 0, 0, 0.75);
+        margin-bottom: 30px;
+        img{
+          height: 270px;
+        }
+      }
+      .col-sm-12{
+        .item img{
+          height: inherit;
+        }
+      }
+    }
+  }
+
+  .testimonials{
+    padding: 50px 0 70px;
+    .testimonal-block{
+      margin-top: 50px;
+      .carousel{
+        .carousel-inner {
+          border-left: 15px solid $purple;
+          border-right: 15px solid $purple;
+          margin: 0 auto;
+          width: 75%;
+          .carousel-item {
+            .item-test{
+              width: 100%;
+              padding: 30px 0;
+              //box-shadow: 0px 0px 25px -15px rgba(0, 0, 0, 0.75);
+              text-align: center;
+              background-color: #ffffff;
+              .photo{
+                border-radius: 50%;
+                width: 110px;
+                margin: 0 auto;
+                height: 110px;
+                background-repeat: no-repeat;
+                border: 3px solid $purple;
+                /*img{
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                } */
+                &.joseph{
+                  background: url('../images/clients/joseph_kent.jpg') right center;
+                  background-size: 140px 100%;
+                }
+                &.dima {
+                  background: url('../images/clients/dima.jpg') center center;
+                  background-size: 385px 120px;
+                }
+              }
+              .name{
+                margin: 15px 0 10px;
+                .p1{
+                  font-size: 1.75em;
+                  font-weight: 700;
+                  line-height: 1;
+                }
+              }
+              .text{
+                width: 75%;
+                margin: 25px auto 0;
+                .p1{
+                  font-size: 1.125em;
+                }
+              }
+            }
+          }
+        }
+        .carousel-indicators{
+          bottom: -30px;
+          li{
+            width: 10px;
+            height: 10px;
+            background-color: lighten($purple, 15%);
+            border-radius: 50%;
+            &.active{
+              background-color: darken($purple, 10%);
+            }
+          }
+        }
+        .control{
+          i{
+            color: $purple;
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+  }
+  .contacts{
+    background: url('../images/hire-me.png') no-repeat center center, #f8f6ff;
+    padding: 40px 0;
+    .contact-block{
+      width: 80%;
+      margin: 60px auto 0;
+      form{
+        .buttons {
+          @include buttons(50%, 35px auto 0);
+        }
+      }
+    }
+  }
+  .hire-me{
+    padding: 40px 0;
+    .hire-block{
+      width: 80%;
+      margin: 0 auto;
+      form{
+        .buttons{
+          @include buttons(50%, 35px auto 0);
+        }
+      }
+    }
+  }
+  footer {
+    @include header_footer(#fff);
+    background-color: $purple;
+    height: inherit;
+    padding-bottom: 30px;
+    .head{
+      height: 120px;
+    }
+    hr{
+      margin-bottom: 20px;
+    }
+    .copyright{
+      .p1{
+        text-align: center;
+        color: white;
+      }
+    }
+  }
+}
+
+* img {
+  max-width: 100%;
+}
+
+body {
+  font-style: $def-fsize;
+  position: relative;
+  font-family: 'NotoSans';
+  color: $def-color;
+
+  header {
+    @include header_footer();
+    position: absolute;
+    transition: .5s;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    right: 0;
+    left: 0;
+  }
+
+  .home {
+    //padding-top: 300px;
+    background: url('../images/hello.jpg') no-repeat top center;
+    padding-bottom: 20px;
+    background-size: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+      .welcome-text {
+        .hello {
+          .p {
+            font-size: 1.750em;
+
+            .smaller {
+              font-size: 0.75em;
+            }
+          }
+        }
+
+        .name {
+          margin: 15px 0;
+
+          .p {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 3.250em;
+
+            .d {
+              letter-spacing: 4px;
+            }
+          }
+        }
+
+        .spec-on {
+          margin-bottom: 10px;
+
+          .p {
+            font-family: 'Merriewether';
+            font-size: 1.875em;
+          }
+        }
+
+        .text-about {
+          .p {
+            color: lighten($def-color, 30%);
+          }
+        }
+      }
+
+      .buttons {
+        @include buttons(100%, 20px -15px 0);
+      }
+    }
+  }
+
+  .about-me {
+    padding: 40px 0;
+
+    .title-gen {
+      @include title-gen(2em);
+    }
+
+    .pod-title {
+      @include pod-title(1.125em);
+    }
+
+    .description {
+      @include description(80%, 15px auto 0, 0.95em, center);
+      margin-bottom: 60px;
+    }
+
+    .skills {
+      margin-bottom: 50px;
+
+      .skill-bar {
+        p {
+          margin-bottom: 15px;
+        }
+
+        .progressbar {
+          position: relative;
+          width: 100%;
+          height: 3px;
+          background-color: #eeeeee;
+
+          .bar {
+            position: absolute;
+            top: 0;
+            width: 0px;
+            transition: all 2s;
+            left: 0;
+            height: 100%;
+            animation-duration: 2s;
+          }
+
+          .label {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            font-weight: 500;
+            transition: all 2s;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+
+            &::before {
+              position: absolute;
+              content: '';
+              bottom: -10px;
+              left: 50%;
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+              width: 10px;
+              height: 10px;
+              border-top: 6px solid #fff;
+              border-bottom: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-left: 5px solid transparent;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  .service {
+    background: #f8f6ff;
+    padding: 60px 0;
+    .services{
+      margin: 70px 0;
+      .card{
+        color: #ffffff;
+        min-height: 460px;
+        border: none;
+        text-align: center;
+        padding: 30px 10px;
+        cursor: default;
+        transition: .3s;
+        .icon {
+          margin: 0 auto;
+          border: 2px solid #fff;
+          border-radius: 50%;
+          padding: 20px;
+          width: 30%;
+        }
+        .card-body{
+          .title{
+            @include title-gen(1.5em);
+            margin-bottom: 20px;
+            .p1{
+              color: #ffffff;
+            }
+          }
+        }
+        .foot-card{
+          .price-block{
+            margin: 0 auto;
+            border: 4px solid white;
+            width: 50%;
+            p{
+              margin: 0;
+              line-height: 1.5;
+              padding: 0;
+              font-weight: 700;
+              font-size: 2em;
+              color: white;
+              font-family: 'Merriewether';
+            }
+          }
+        }
+        &:hover{
+          margin-top: -15px;
+        }
+        &.c-1{
+          background-image: linear-gradient(to bottom left, $html-c, darken($html-c, 4%));
+          box-shadow: 0px 0px 47px -10px rgba(110, 65, 255, 0.75);
+        }
+        &.c-2 {
+          background-image: linear-gradient(to bottom left, $js-c, darken($js-c, 18%));
+          box-shadow: 0px 0px 47px -10px rgba(254, 189, 89, 0.75);
+        }
+        &.c-3 {
+          background-image: linear-gradient(to bottom left, $purple, darken($purple, 28%));
+          box-shadow: 0px 0px 47px -10px rgba(43, 221, 189, 0.75);
+        }
+      }
+    }
+  }
+  .benefits {
+    padding: 50px 0;
+
+    .title {
+      @include title-gen();
+      margin-bottom: 30px;
+    }
+
+    .benefit {
+      .ser-item {
+        padding: 50px 0;
+        box-shadow: 0px 0px 40px -21px rgba(0, 0, 0, 0.75);
+
+        .icon {
+          width: 20%;
+          margin: 0 auto;
+
+          i {
+            font-style: 3em;
+            color: $purple;
+          }
+        }
+
+        .title {
+          margin-top: 15px;
+          @include title-gen(1.5em);
+        }
+
+        .text {
+          width: 80%;
+          margin: 30px auto;
+          @include pod-title(1em);
+        }
+
+        .buttons {
+          @include buttons(60%);
+        }
+      }
+    }
+
+
+  }
+
+  .portfolio{
+    background: #f8f6ff;
+    padding: 50px 0;
+    .works{
+      margin-top: 60px;
+      .item{
+        box-shadow: -9px 11px 47px -27px rgba(0, 0, 0, 0.75);
+        margin-bottom: 30px;
+        img{
+          height: 270px;
+        }
+      }
+      .col-sm-12{
+        .item img{
+          height: inherit;
+        }
+      }
+    }
+  }
+
+  .testimonials{
+    padding: 50px 0 70px;
+    .testimonal-block{
+      margin-top: 50px;
+      .carousel{
+        .carousel-inner {
+          border-left: 15px solid $purple;
+          border-right: 15px solid $purple;
+          margin: 0 auto;
+          width: 75%;
+          .carousel-item {
+            .item-test{
+              width: 100%;
+              padding: 30px 0;
+              //box-shadow: 0px 0px 25px -15px rgba(0, 0, 0, 0.75);
+              text-align: center;
+              background-color: #ffffff;
+              .photo{
+                border-radius: 50%;
+                width: 110px;
+                margin: 0 auto;
+                height: 110px;
+                background-repeat: no-repeat;
+                border: 3px solid $purple;
+                /*img{
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 50%;
+                } */
+                &.joseph{
+                  background: url('../images/clients/joseph_kent.jpg') right center;
+                  background-size: 140px 100%;
+                }
+                &.dima {
+                  background: url('../images/clients/dima.jpg') center center;
+                  background-size: 385px 120px;
+                }
+              }
+              .name{
+                margin: 15px 0 10px;
+                .p1{
+                  font-size: 1.75em;
+                  font-weight: 700;
+                  line-height: 1;
+                }
+              }
+              .text{
+                width: 75%;
+                margin: 25px auto 0;
+                .p1{
+                  font-size: 1.125em;
+                }
+              }
+            }
+          }
+        }
+        .carousel-indicators{
+          bottom: -30px;
+          li{
+            width: 10px;
+            height: 10px;
+            background-color: lighten($purple, 15%);
+            border-radius: 50%;
+            &.active{
+              background-color: darken($purple, 10%);
+            }
+          }
+        }
+        .control{
+          i{
+            color: $purple;
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
+  }
+  .contacts{
+    background: url('../images/hire-me.png') no-repeat center center, #f8f6ff;
+    padding: 40px 0;
+    .contact-block{
+      width: 80%;
+      margin: 60px auto 0;
+      form{
+        .buttons {
+          @include buttons(50%, 35px auto 0);
+        }
+      }
+    }
+  }
+  .hire-me{
+    padding: 40px 0;
+    .hire-block{
+      width: 80%;
+      margin: 0 auto;
+      form{
+        .buttons{
+          @include buttons(50%, 35px auto 0);
+        }
+      }
+    }
+  }
+  footer {
+    @include header_footer(#fff);
+    background-color: $purple;
+    height: inherit;
+    padding-bottom: 30px;
+    .head{
+      height: 120px;
+    }
+    hr{
+      margin-bottom: 20px;
+    }
+    .copyright{
+      .p1{
+        text-align: center;
+        color: white;
+      }
+    }
+  }
 }

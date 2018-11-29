@@ -1,4 +1,4 @@
-
+@import 'fonts.css';
 // Body
 $body-bg: #f8fafc;
 
@@ -18,3 +18,145 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+
+@import 'mixins';
+$def-color: #1a1a1a;
+$purple: #6e41ff;
+$def-fsize: 16px;
+$html-c: #2bddbd;
+$css-c: #ff65a5;
+$rocket: #57acec;
+$js-c: #febd59;
+$php-c: #735db6;
+
+.title{
+  @include title-gen();
+}
+.pod-title {
+  @include pod-title();
+}
+
+
+* img {
+  max-width: 100%;
+}
+
+
+.scrolled{
+  background-color: rgb(241, 241, 241);
+  position: fixed;
+  z-index: 999;
+}
+.to-top {
+  position: fixed;
+  display: none;
+  right: 50px;
+  animation-duration: .4s;
+  bottom: 50px;
+
+  .icon {
+    i {
+      transform: rotate(-45deg);
+      font-size: 2.5em;
+      color: $rocket;
+      transition: .2s;
+      cursor: pointer;
+      &:hover {
+        color: darken($rocket, 5%);
+      }
+    }
+  }
+}
+.buttons {
+  @include buttons(570px, 40px auto 0);
+}
+
+#html {
+  @include color($html-c);
+}
+
+#js {
+  @include color($js-c);
+}
+
+#css {
+  @include color($css-c);
+}
+
+#php {
+  @include color($php-c);
+}
+
+form {
+  $placeholderColor: #999;
+  $placeholderOpacity: 1;
+
+  ::-webkit-input-placeholder {
+    color: $placeholderColor;
+    opacity: $placeholderOpacity;
+  }
+
+  ::-moz-placeholder {
+    color: $placeholderColor;
+    opacity: $placeholderOpacity;
+  }
+
+  :-moz-placeholder {
+    color: $placeholderColor;
+    opacity: $placeholderOpacity;
+  }
+
+  :-ms-input-placeholder {
+    color: $placeholderColor;
+    opacity: $placeholderOpacity;
+  }
+
+  .inputblock {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    label {
+      &.error {
+        display: none !important;
+      }
+    }
+    input, textarea {
+      display: inline-block;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $purple;
+      line-height: 48px;
+      box-shadow: none !important;
+      height: 48px;
+      padding: 0 25px;
+      font-size: 1.125em;
+      font-weight: 400;
+      background: transparent;
+      color: #333;
+
+      &.error {
+        border-color: #E76767;
+      }
+    }
+    textarea {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      line-height: 1.3;
+      resize: none;
+      height: auto;
+      padding-top: 40px;
+      min-height: 150px;
+    }
+  }
+
+  .controls {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+
+    button, input {
+      width: 100%;
+    }
+  }
+}
