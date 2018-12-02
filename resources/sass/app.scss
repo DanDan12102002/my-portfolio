@@ -1,6 +1,5 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import '~font-awesome/css/font-awesome.min.css';
 @import 'variables';
 @import '~animate.css/animate.min.css';
 
@@ -26,9 +25,8 @@ body {
 
   .home {
     //padding-top: 300px;
-    background: url('../images/hello.jpg') no-repeat top center;
-    padding-bottom: 20px;
-    background-size: 100%;
+    background: url('../images/hello.jpg') no-repeat center center;
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;

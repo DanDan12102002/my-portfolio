@@ -1,52 +1,5 @@
-<?php
-	# -------- META---------- #
-$meta = new stdClass();
-	# Название сайта
-$meta->sitename = '';
-	# Заголовок
-$meta->title = '';
-	# Описание
-$meta->desc = '';
-	# Текущий линк на страницу
-	//$meta->url = getBaseUrl();
-	# Картинка для соц. сетей, размер: 1200x630px
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
-
-<head>
-	<title>
-		Portfolio
-	</title>
-
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="image_src" href="{{ asset('images/social.jpg') }}" />
-
-	<meta property="og:locale" content="ru_RU" />
-	<meta property="og:type" content="website" />
-	<meta property="og:image" content="{{ asset('images/social.jpg') }}" />
-
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:image" content="{{ asset('images/social.jpg') }}">
-	<meta itemprop="image" content="{{ asset('images/social.jpg') }}" />
-
-	<script src="./node_modules/jquery/dist/jquery.min.js" crossorigin="anonymous"></script>
-	<script src="./assets/public/js/jquery.validate.min.js"></script>
-	<link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="./node_modules/popper.js/dist/popper.js" crossorigin="anonymous"></script>
-	<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
-
-
-
-	<link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
-	<script src="./node_modules/wow.js/dist/wow.min.js"></script>
-</head>
-
-<body>
+@extends('layouts.landing-layout')
+@section('header')
 	<header>
 		<div class="container">
 			<div class="row head">
@@ -92,7 +45,10 @@ $meta->desc = '';
 				</div>
 			</div>
 		</div>
-	</header>
+</header>
+@endsection
+
+@section('home')
 	<section class="home">
 		<div class="container">
 			<div class="row content">
@@ -127,6 +83,9 @@ $meta->desc = '';
 			</div>
 		</div>
 	</section>
+@endsection
+
+@section('about-me')
 	<section class="about-me">
 		<div class="container">
 			<div class="title-gen">
@@ -189,6 +148,9 @@ $meta->desc = '';
 
 		</div>
 	</section>
+@endsection
+
+@section('service')
 	<section class="service">
 		<div class="container">
 			<div class="title">
@@ -266,6 +228,9 @@ $meta->desc = '';
 			</div>
 		</div>
 	</section>
+@endsection
+
+@section('benefits')
 	<section class="benefits">
 		<div class="container">
 			<div class="title">
@@ -331,6 +296,9 @@ $meta->desc = '';
 
 		</div>
 	</section>
+@endsection
+
+@section('portfolio')
 	<section class="portfolio">
 		<div class="container">
 			<div class="title">
@@ -374,6 +342,9 @@ $meta->desc = '';
 			</div>
 		</div>
 	</section>
+@endsection
+
+@section('testimonials')
 	<section class="testimonials">
 		<div class="container">
 			<div class="title">
@@ -439,18 +410,22 @@ $meta->desc = '';
 						</div>
 					</div>
 					<a class="carousel-control-prev control" href="#carouselExampleIndicators" role="button" data-slide="prev">
-						<i class="fa fa-chevron-left"></i>
+						<i class="fa fa-arrow-left" aria-hidden="true"></i>
 						<span class="sr-only">Previous</span>
 					</a>
 					<a class="carousel-control-next control" href="#carouselExampleIndicators" role="button" data-slide="next">
-						<i class="fa fa-chevron-right"></i>
-						<span class="sr-only">Next</span>
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+
 					</a>
 				</div>
 			</div>
 
 		</div>
 	</section>
+@endsection
+
+@section('contacts')
 	<section class="contacts">
 		<div class="container">
 			<div class="title">
@@ -490,6 +465,9 @@ $meta->desc = '';
 			</div>
 		</div>
 	</section>
+@endsection
+
+@section('hire-me')
 	<section class="hire-me">
 		<div class="container">
 			<div class="title">
@@ -521,7 +499,9 @@ $meta->desc = '';
 
 		</div>
 	</section>
+@endsection
 
+@section('footer')
 	<footer>
 		<div class="container">
 			<div class="row head">
@@ -571,12 +551,22 @@ $meta->desc = '';
 			</div>
 		</div>
 	</footer>
+@endsection
 
+@section('to-top')
 	<div class="to-top fadeIn go-to-block" data-target=".home">
 		<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-prefix="fas" data-icon="rocket" class="svg-inline--fa fa-rocket fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505.1 19.1C503.8 13 499 8.2 492.9 6.9 460.7 0 435.5 0 410.4 0 307.2 0 245.3 55.2 199.1 128H94.9c-18.2 0-34.8 10.3-42.9 26.5L2.6 253.3c-8 16 3.6 34.7 21.5 34.7h95.1c-5.9 12.8-11.9 25.5-18 37.7-3.1 6.2-1.9 13.6 3 18.5l63.6 63.6c4.9 4.9 12.3 6.1 18.5 3 12.2-6.1 24.9-12 37.7-17.9V488c0 17.8 18.8 29.4 34.7 21.5l98.7-49.4c16.3-8.1 26.5-24.8 26.5-42.9V312.8c72.6-46.3 128-108.4 128-211.1.1-25.2.1-50.4-6.8-82.6zM400 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"/></svg></span>
 	</div>
+@endsection
 
-	<script src="{{ asset('js/app.js') }}"></script>
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+
+
