@@ -38,8 +38,7 @@ $meta->desc = '';
 	<link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="./node_modules/popper.js/dist/popper.js" crossorigin="anonymous"></script>
 	<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<link href="./node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
 
 
 
@@ -76,17 +75,17 @@ $meta->desc = '';
 					<div class="row networks">
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://www.facebook.com/profile.php?id=100017213259299&ref=bookmarks"><i class="fa fa-facebook-f"></i></a>
+								<a href="https://www.facebook.com/profile.php?id=100017213259299&ref=bookmarks"><i class="fab fa-facebook-f"></i></a>
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://www.instagram.com/dan_prozar/"><i class="fa fa-instagram"></i></a>
+								<a href="https://www.instagram.com/dan_prozar/"><i class="fab fa-instagram"></i></a>
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://vk.com/dan_proz"><i class="fa fa-vk"></i></a>
+								<a href="https://vk.com/dan_proz"><i class="fab fa-vk"></i></a>
 							</div>
 						</div>
 					</div>
@@ -142,7 +141,7 @@ $meta->desc = '';
 			</div>
 			<div class="description">
 				<div class="p1">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui laborum adipisci pariatur consequuntur, modi rerum error @eos magni repudiandae, est impedit provident, doloribus itaque non? Cupiditate praesentium corrupti non doloremque.
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui laborum adipisci pariatur consequuntur, modi rerum error eos magni repudiandae, est impedit provident, doloribus itaque non? Cupiditate praesentium corrupti non doloremque.
 				</div>
 			</div>
 			<div class="row skills top">
@@ -548,17 +547,17 @@ $meta->desc = '';
 					<div class="row networks">
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://www.facebook.com/profile.php?id=100017213259299&ref=bookmarks"><i class="fa fa-facebook-f"></i></a>
+								<a href="https://www.facebook.com/profile.php?id=100017213259299&ref=bookmarks"><i class="fab fa-facebook-f"></i></a>
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://www.instagram.com/dan_prozar/"><i class="fa fa-instagram"></i></a>
+								<a href="https://www.instagram.com/dan_prozar/"><i class="fab fa-instagram"></i></a>
 							</div>
 						</div>
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://vk.com/dan_proz"><i class="fa fa-vk"></i></a>
+								<a href="https://vk.com/dan_proz"><i class="fab fa-vk"></i></a>
 							</div>
 						</div>
 					</div>
@@ -574,7 +573,7 @@ $meta->desc = '';
 	</footer>
 
 	<div class="to-top fadeIn go-to-block" data-target=".home">
-		<span class="icon"><i class="fa fa-rocket"></i></span>
+		<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-prefix="fas" data-icon="rocket" class="svg-inline--fa fa-rocket fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505.1 19.1C503.8 13 499 8.2 492.9 6.9 460.7 0 435.5 0 410.4 0 307.2 0 245.3 55.2 199.1 128H94.9c-18.2 0-34.8 10.3-42.9 26.5L2.6 253.3c-8 16 3.6 34.7 21.5 34.7h95.1c-5.9 12.8-11.9 25.5-18 37.7-3.1 6.2-1.9 13.6 3 18.5l63.6 63.6c4.9 4.9 12.3 6.1 18.5 3 12.2-6.1 24.9-12 37.7-17.9V488c0 17.8 18.8 29.4 34.7 21.5l98.7-49.4c16.3-8.1 26.5-24.8 26.5-42.9V312.8c72.6-46.3 128-108.4 128-211.1.1-25.2.1-50.4-6.8-82.6zM400 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"/></svg></span>
 	</div>
 
 	<script src="{{ asset('js/app.js') }}"></script>

@@ -56,10 +56,12 @@ $php-c: #735db6;
   bottom: 50px;
 
   .icon {
-    i {
+    svg {
       transform: rotate(-45deg);
       font-size: 2.5em;
       color: $rocket;
+      width: 40px;
+      height: 40px;
       transition: .2s;
       cursor: pointer;
       &:hover {
