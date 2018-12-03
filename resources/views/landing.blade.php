@@ -425,47 +425,7 @@
 	</section>
 @endsection
 
-@section('contacts')
-	<section class="contacts">
-		<div class="container">
-			<div class="title">
-				<div class="p1">
-					Как связаться со мной
-				</div>
-			</div>
-			<div class="pod-title">
-				<div class="p1">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, assumenda.
-				</div>
-			</div>
-			<div class="contact-block">
-				<form action="" method="post">
-					<div class="form-controll contact">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="inputblock">
-									<input type="email" placeholder="Введите ваш e-mail" name="email" required />
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="inputblock">
-									<input type="text" placeholder="Введите ваше имя" name="name" required />
-								</div>
-							</div>
-						</div>
-						<div class="inputblock">
-							<textarea placeholder="Введите ваше сообщение" name="msg" required></textarea>
-						</div>
-					</div>
 
-					<div class="row buttons">
-						<div class="col-sm-12"><button type="submit" class="btn send-ajax">Написать мне</button></div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
-@endsection
 
 @section('hire-me')
 	<section class="hire-me">
@@ -481,25 +441,38 @@
 				</div>
 			</div>
 			<div class="hire-block">
-				<form action="" method="post">
+
+                <form action="{{ URL::to('/submit') }}" method="post">
+                    @csrf
 					<div class="form-controll hire">
 						<div class="inputblock">
-							<input type="email" placeholder="Введите ваш e-mail" name="email" required />
+							<input type="email" placeholder="Введите ваш e-mail" name="email"/>
 						</div>
 						<div class="inputblock">
-							<textarea placeholder="Введите ваше сообщение" name="msg" required></textarea>
+							<textarea placeholder="Введите ваше сообщение" name="msg"></textarea>
 						</div>
 					</div>
 
 					<div class="row buttons">
 						<div class="col-sm-12"><button type="submit" class="btn send-ajax">Нанять меня</button></div>
 					</div>
-				</form>
+                </form>
+
+                @if($errors->any())
+                    <div>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+															<li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 			</div>
 
 		</div>
 	</section>
 @endsection
+
 
 @section('footer')
 	<footer>
@@ -550,23 +523,9 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+    </footer>
+
+    <div class="to-top fadeIn go-to-block" data-target=".home">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-prefix="fas" data-icon="rocket" class="svg-inline--fa fa-rocket fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505.1 19.1C503.8 13 499 8.2 492.9 6.9 460.7 0 435.5 0 410.4 0 307.2 0 245.3 55.2 199.1 128H94.9c-18.2 0-34.8 10.3-42.9 26.5L2.6 253.3c-8 16 3.6 34.7 21.5 34.7h95.1c-5.9 12.8-11.9 25.5-18 37.7-3.1 6.2-1.9 13.6 3 18.5l63.6 63.6c4.9 4.9 12.3 6.1 18.5 3 12.2-6.1 24.9-12 37.7-17.9V488c0 17.8 18.8 29.4 34.7 21.5l98.7-49.4c16.3-8.1 26.5-24.8 26.5-42.9V312.8c72.6-46.3 128-108.4 128-211.1.1-25.2.1-50.4-6.8-82.6zM400 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"/></svg></span>
+    </div>
 @endsection
-
-@section('to-top')
-	<div class="to-top fadeIn go-to-block" data-target=".home">
-		<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-prefix="fas" data-icon="rocket" class="svg-inline--fa fa-rocket fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505.1 19.1C503.8 13 499 8.2 492.9 6.9 460.7 0 435.5 0 410.4 0 307.2 0 245.3 55.2 199.1 128H94.9c-18.2 0-34.8 10.3-42.9 26.5L2.6 253.3c-8 16 3.6 34.7 21.5 34.7h95.1c-5.9 12.8-11.9 25.5-18 37.7-3.1 6.2-1.9 13.6 3 18.5l63.6 63.6c4.9 4.9 12.3 6.1 18.5 3 12.2-6.1 24.9-12 37.7-17.9V488c0 17.8 18.8 29.4 34.7 21.5l98.7-49.4c16.3-8.1 26.5-24.8 26.5-42.9V312.8c72.6-46.3 128-108.4 128-211.1.1-25.2.1-50.4-6.8-82.6zM400 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"/></svg></span>
-	</div>
-@endsection
-
-
-
-
-
-
-
-
-
-
-
-

@@ -47,10 +47,8 @@ $meta->desc = '';
 	@yield('benefits')
 	@yield('portfolio')
 	@yield('testimonials')
-	@yield('contacts')
 	@yield('hire-me')
 	@yield('footer')
-	@yield('to-top')
 
 	<script src="{{ asset('js/app.js') }}"></script>
 </body>
