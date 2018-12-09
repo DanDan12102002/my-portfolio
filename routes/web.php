@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Auth::routes();
-
-Route::get('/admin', 'HomeController@index')->name('admin');
 Route::post('/submit', 'Form@store');
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

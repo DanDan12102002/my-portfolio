@@ -9832,8 +9832,7 @@ body header .head .networks .circle-icon:hover a, body header .head .networks .c
 }
 
 body .home {
-  background: url("../images/hello.jpg") no-repeat center center;
-  background-size: cover;
+  background: url("../images/hello.jpg") no-repeat top center;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;

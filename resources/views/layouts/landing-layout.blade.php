@@ -17,7 +17,7 @@ $meta->desc = '';
 
 <head>
 	<title>
-		Portfolio
+		{{ setting('site.title') }}
 	</title>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
