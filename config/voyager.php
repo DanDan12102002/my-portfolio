@@ -22,6 +22,19 @@ return [
         'redirect'                     => '/admin',
     ],
 
+
+    // Languages
+    'multilingual' => [
+        'enabled' => true,
+        'rtl' => false,
+        'default' => 'ru',
+        'locales' => [
+            'ru',
+            'en',
+            'ua'
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Controllers config
