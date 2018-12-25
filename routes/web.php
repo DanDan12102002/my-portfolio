@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
+Route::get('/', 'MainController@index');
 
 Route::post('/submit', 'Form@store');
 Route::group(['prefix' => 'admin'], function () {

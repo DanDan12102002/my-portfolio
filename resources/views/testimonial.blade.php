@@ -15,53 +15,35 @@
         <div class="testimonal-block">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+										@foreach($testimonials as $key => $testimonial)
+										<li data-target="#carouselExampleIndicators"
+											data-slide-to="{{ $key }}" class='{{ $key == '0' ? 'active' : ''}}'></li>
+										@endforeach
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="item-test">
-                            <div class="photo joseph">
-
-                            </div>
-                            <div class="name">
-                                <div class="p1">
-                                    Joseph Kent
+                    @foreach($testimonials as $key => $testimonial)
+												<div class="carousel-item {{ $key == '0' ? 'active' : ''}}">
+                            <div class="item-test">
+															<div class="photo client-{{ $key + 1 }}"
+																style="background-image: 
+																url('../storage/TestimonialPhotos/client-{{ $key + 1}}.jpeg')"></div>
+                                <div class="name">
+                                    <div class="p1">
+                                        {{ $testimonial->name }}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="location">
-                                <div class="p1">
-                                    Tampa, US
+                                <div class="location">
+                                    <div class="p1">
+                                        {{ $testimonial->location }}
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="text">
-                                <p class="p1">Стремительный и умный - Даня именно тот, кого вы ищете на Upwork!</p>
+                                <div class="text">
+																	<p class="p1">{{ $testimonial->testimonial }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="item-test">
-                            <div class="photo dima">
-
-                            </div>
-                            <div class="name">
-                                <div class="p1">
-                                    Дмитрий Сабадаш
-                                </div>
-                            </div>
-                            <div class="location">
-                                <div class="p1">
-                                    Каменец-Подольский, Украина
-                                </div>
-                            </div>
-
-                            <div class="text">
-                                <p class="p1">Очень доволен работой по сайту! Все было сделано четко, так как планировалось и в очень короткий срок. Рекомендую!</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev control" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <i class="fa fa-arrow-left" aria-hidden="true"></i>

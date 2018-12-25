@@ -100,7 +100,7 @@
 			</div>
 			<div class="description">
 				<div class="p1">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui laborum adipisci pariatur consequuntur, modi rerum error eos magni repudiandae, est impedit provident, doloribus itaque non? Cupiditate praesentium corrupti non doloremque.
+					{{ setting('site.about-me') }}
 				</div>
 			</div>
 			<div class="row skills top">
@@ -137,7 +137,7 @@
 				<div class="col-sm-6">
 					<div class="skill-bar">
 						<p>PHP & Frameworks</p>
-						<div id="php" class="progressbar" aria-valuenow="65">
+						<div id="php" class="progressbar" aria-valuenow="70">
 							<div class="bar" role="progressbar"></div>
 							<span class="label"></span>
 						</div>
