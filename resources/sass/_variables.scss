@@ -33,6 +33,9 @@ $php-c: #735db6;
 .title{
   @include title-gen();
 }
+* img {
+  max-width: 100%;
+}
 .pod-title {
   @include pod-title();
 }

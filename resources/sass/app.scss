@@ -268,8 +268,44 @@ body {
       .item{
         box-shadow: -9px 11px 47px -27px rgba(0, 0, 0, 0.75);
         margin-bottom: 30px;
-        img{
+        height: 270px;
+        .hover-block{
+          transition: .3s;
           height: 270px;
+          display: none;
+          position: absolute;
+          top: 0;
+          right: 15px;
+          left: 15px;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.6);
+          align-items: center;
+          justify-content: center;
+          .circle-link{
+            cursor: pointer;
+            width: 100px;
+            transition: .5s;
+            animation-duration: .7s;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgb(240, 240, 240);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i{
+              color: #000000;
+              font-size: 2em;
+              transform: rotate(90deg);
+            }
+          }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          .hover-block{
+            display: flex;
+          }
         }
       }
       .col-sm-12{
@@ -282,6 +318,7 @@ body {
 
   .testimonials{
     padding: 50px 0 70px;
+    background: url('../images/bg-section.jpg') no-repeat center center / cover;
     .testimonal-block{
       margin-top: 50px;
       .carousel{
@@ -408,6 +445,4 @@ body {
   }
 }
 
-* img {
-  max-width: 100%;
-}
+

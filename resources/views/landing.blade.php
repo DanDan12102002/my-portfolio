@@ -107,7 +107,7 @@
 				<div class="col-sm-6">
 					<div class="skill-bar">
 						<p>HTML</p>
-						<div id="html" class="progressbar" aria-valuenow="90">
+						<div id="html" class="progressbar" aria-valuenow="{{ setting('site.html') }}">
 							<div class="bar" role="progressbar"></div>
 							<span class="label"></span>
 						</div>
@@ -116,7 +116,7 @@
 				<div class="col-sm-6">
 					<div class="skill-bar">
 						<p>JavaScript & Frameworks</p>
-						<div id="js" class="progressbar" aria-valuenow="80">
+						<div id="js" class="progressbar" aria-valuenow="{{ setting('site.js') }}">
 							<div class="bar" role="progressbar"></div>
 							<span class="label"></span>
 						</div>
@@ -128,7 +128,7 @@
 				<div class="col-sm-6">
 					<div class="skill-bar">
 						<p>CSS & Preprocesors</p>
-						<div id="css" class="progressbar" aria-valuenow="95">
+						<div id="css" class="progressbar" aria-valuenow="{{ setting('site.css') }}">
 							<div class="bar" role="progressbar"></div>
 							<span class="label"></span>
 						</div>
@@ -137,7 +137,7 @@
 				<div class="col-sm-6">
 					<div class="skill-bar">
 						<p>PHP & Frameworks</p>
-						<div id="php" class="progressbar" aria-valuenow="70">
+						<div id="php" class="progressbar" aria-valuenow="{{ setting('site.php') }}">
 							<div class="bar" role="progressbar"></div>
 							<span class="label"></span>
 						</div>
@@ -313,32 +313,19 @@
 			</div>
 
 			<div class="works row">
-
-				<div class="col-sm-6">
-					<div class="item">
-						<img src="{{ asset('images/portfolio/item-3.jpg') }}" alt="">
+				@foreach($works as $key => $work)
+					<div class="{{ $work->col_name }}">
+						<div class="item" style="
+							background: url('{{ Voyager::image($work->main_image) }}') center center / cover;">
+							<div class="hover-block animated fadeIn">
+								<div class="circle-link" type="button" 
+									data-toggle="modal" data-target="#work{{ $key + 1 }}">
+									<i class="fa fa-link"></i>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="item">
-						<img src="{{ asset('images/portfolio/item-2.jpg') }}" alt="">
-					</div>
-				</div>
-				<div class="col-sm-12">
-					<div class="item">
-						<img src="{{ asset('images/portfolio/item-1.jpg') }}" alt="">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="item">
-						<img src="{{ asset('images/portfolio/item-4.jpg') }}" alt="">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="item">
-						<img src="{{ asset('images/portfolio/item-5.jpg') }}" alt="">
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
@@ -367,10 +354,10 @@
                     @csrf
 					<div class="form-controll hire">
 						<div class="inputblock">
-							<input type="email" placeholder="Введите ваш e-mail" name="email"/>
+							<input type="email" placeholder="Введите ваш e-mail" name="email" required/>
 						</div>
 						<div class="inputblock">
-							<textarea placeholder="Введите ваше сообщение" name="msg"></textarea>
+							<textarea placeholder="Введите ваше сообщение" name="msg" required></textarea>
 						</div>
 					</div>
 
@@ -451,4 +438,18 @@
     <div class="to-top fadeIn go-to-block" data-target=".home">
         <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-prefix="fas" data-icon="rocket" class="svg-inline--fa fa-rocket fa-w-16" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M505.1 19.1C503.8 13 499 8.2 492.9 6.9 460.7 0 435.5 0 410.4 0 307.2 0 245.3 55.2 199.1 128H94.9c-18.2 0-34.8 10.3-42.9 26.5L2.6 253.3c-8 16 3.6 34.7 21.5 34.7h95.1c-5.9 12.8-11.9 25.5-18 37.7-3.1 6.2-1.9 13.6 3 18.5l63.6 63.6c4.9 4.9 12.3 6.1 18.5 3 12.2-6.1 24.9-12 37.7-17.9V488c0 17.8 18.8 29.4 34.7 21.5l98.7-49.4c16.3-8.1 26.5-24.8 26.5-42.9V312.8c72.6-46.3 128-108.4 128-211.1.1-25.2.1-50.4-6.8-82.6zM400 160c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"/></svg></span>
     </div>
+@endsection
+
+
+@section('modals')
+	@foreach($works as $key => $work)
+	<div class="modal fade bd-example-modal-lg" id="work{{ $key + 1 }}" tabindex="-1" 
+		role="dialog" aria-labelledby="work{{ $key + 1 }}Label" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<img src="{{ Voyager::image($work->modal_image) }}" alt="">
+				</div>
+			</div>
+		</div>
+	@endforeach
 @endsection

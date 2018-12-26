@@ -50,6 +50,7 @@ $meta->desc = '';
 	@yield('testimonials')
 	@yield('hire-me')
 	@yield('footer')
+	@yield('modals')
 
 	<script src="{{ asset('js/app.js') }}"></script>
 </body>
