@@ -37,7 +37,7 @@ class Form extends Controller
 
 
         $validation = $request->validate([
-            'email' => 'required | min:10',
+            'email' => 'required | min:13',
             'msg' => 'required | max:500'
         ]);
 
