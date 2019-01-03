@@ -1,34 +1,27 @@
 @extends('layouts.landing-layout')
+
 @section('header')
 	<header>
 		<div class="container">
 			<div class="row head">
-				<div class="col-sm-3">
+				<div class="col-lg-3 col-sm-2">
 					<div class="logo">
 						<img src="{{ asset('images/logo.png') }}" alt="">
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-6 col-sm-7">
 					<div class="row menu">
-						<div class="col-sm-3">
 							<div class="link"><a class="go-to-block" data-target=".about-me">Обо мне</a></div>
-						</div>
-						<div class="col-sm-3">
 							<div class="link"><a class="go-to-block" data-target=".service">Услуги</a></div>
-						</div>
-						<div class="col-sm-3">
 							<div class="link"><a class="go-to-block" data-target=".portfolio">Портфолио</a></div>
-						</div>
-						<div class="col-sm-3">
-							<div class="link"><a href="" class="go-to-block" data-target=".contacts">Контакты</a></div>
-						</div>
+							<div class="link"><a href="" class="go-to-block" data-target=".hire-me">Нанять меня</a></div>
 					</div>
 				</div>
 				<div class="col-sm-3">
 					<div class="row networks">
 						<div class="col-sm-4">
 							<div class="circle-icon">
-								<a href="https://www.facebook.com/profile.php?id=100017213259299&ref=bookmarks"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://www.facebook.com/profile.php?id=100017213259299"><i class="fab fa-facebook-f"></i></a>
 							</div>
 						</div>
 						<div class="col-sm-4">
@@ -76,8 +69,8 @@
 						</div>
 					</div>
 					<div class="row buttons">
-						<div class="col-sm-6"><button class="btn btn-banner go-to-block" data-target=".portfolio">Мои работы</button></div>
-						<div class="col-sm-6"><button class="btn btn-banner go-to-block" data-target=".hire-me">Заказать у меня сайт</button></div>
+						<div class="col-lg-6 col-sm-12"><button class="btn btn-banner go-to-block" data-target=".portfolio">Мои работы</button></div>
+						<div class="col-lg-6 col-sm-12"><button class="btn btn-banner go-to-block" data-target=".hire-me">Заказать у меня сайт</button></div>
 					</div>
 				</div>
 			</div>
@@ -165,7 +158,7 @@
 			</div>
 
 			<div class="services row">
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-8">
 					<div class="card c-1">
 						<div class="card-head">
 							<div class="icon">
@@ -184,7 +177,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-8">
 					<div class="card c-2">
 						<div class="card-head">
 							<div class="icon">
@@ -203,7 +196,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-8">
 					<div class="card c-3">
 						<div class="card-head">
 							<div class="icon">
@@ -239,7 +232,7 @@
 				</div>
 			</div>
 			<div class="benefit row">
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-7">
 					<div class="ser-item">
 						<div class="icon">
 							<!-- Some icon -->
@@ -257,7 +250,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-7">
 					<div class="ser-item">
 						<div class="icon">
 							<!-- Some icon -->
@@ -275,7 +268,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4">
+				<div class="col-lg-4 col-sm-7">
 					<div class="ser-item">
 						<div class="icon">
 							<!-- Some icon -->
@@ -316,7 +309,7 @@
 				@foreach($works as $key => $work)
 					<div class="{{ $work->col_name }}">
 						<div class="item" style="
-							background: url('{{ Voyager::image($work->main_image) }}') center center / cover;">
+							background-image: url('{{ Voyager::image($work->main_image) }}')">
 							<div class="hover-block animated fadeIn">
 								<div class="circle-link" type="button" 
 									data-toggle="modal" data-target="#work{{ $key + 1 }}">
@@ -334,6 +327,7 @@
 @include('testimonial')
 
 
+@include('flash::message')
 
 @section('hire-me')
 	<section class="hire-me">
@@ -350,31 +344,42 @@
 			</div>
 			<div class="hire-block">
 
-                <form action="{{ URL::to('/submit') }}" method="post">
-                    @csrf
+        <form class="form" action="{{ route('contact.store') }}" method="post">
+          @csrf
 					<div class="form-controll hire">
-						<div class="inputblock">
-							<input type="email" placeholder="Введите ваш e-mail" name="email" required/>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="inputblock">
+									<input type="email" class="form-controll" placeholder="Введите ваш e-mail" name="email" value='{{old('email')}}'/>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="inputblock">
+									<input type="text" class="form-controll" placeholder="Введите ваше имя" name="name" value='{{old('name')}}'/>
+								</div>
+							</div>
 						</div>
 						<div class="inputblock">
-							<textarea placeholder="Введите ваше сообщение" name="msg" required></textarea>
+							<textarea placeholder="Введите ваше сообщение" name="message" >{{old('message')}}</textarea>
 						</div>
 					</div>
 
 					<div class="row buttons">
 						<div class="col-sm-12"><button type="submit" class="btn send-ajax">Нанять меня</button></div>
 					</div>
-                </form>
-
-                @if($errors->any())
-                    <div>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-							    <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+						@if($errors->any())
+							<div class="alert alert-danger">
+								<ul>
+									@foreach($errors->all() as $error)
+										<li>{{$error}}</li>
+									@endforeach
+								</ul>
+							</div>
+						@endif
+          </form>
+				
+								
+               
 			</div>
 
 		</div>

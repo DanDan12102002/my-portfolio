@@ -49,6 +49,12 @@ $php-c: #735db6;
   position: fixed;
   z-index: 999;
 }
+
+.alert{
+  position: relative;
+  z-index: 999999;
+}
+
 .to-top {
   position: fixed;
   display: none;
@@ -67,6 +73,10 @@ $php-c: #735db6;
       cursor: pointer;
       &:hover {
         color: darken($rocket, 5%);
+      }
+      @media(min-width:992px)and(max-width: 1199px) {
+        width: 35px;
+        height: 35px;
       }
     }
   }

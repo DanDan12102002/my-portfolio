@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::get('/', 'MainController@create');
 
-Route::post('/submit', 'Form@store');
+Route::get('/contact', 'MainController@create')->name('contact.create');
+Route::post('/contact', 'ContactController@store')->name('contact.store');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

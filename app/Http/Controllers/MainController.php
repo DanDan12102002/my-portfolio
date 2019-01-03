@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use App\Testimonial;
 use App\Work;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\MainFormRequest;
 
 class MainController extends Controller
 {
-    public function index() {
+    public function create() {
         $testimonials = Testimonial::all();
         $works = Work::all();
 

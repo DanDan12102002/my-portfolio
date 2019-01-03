@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Testimonials extends Migration
+class Form extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class Testimonials extends Migration
      */
     public function up()
     {
-        Schema::create('testimonials', function (Blueprint $table) {
+        Schema::create('form', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('location');
-            $table->text('testimonial');
-            $table->string('image')->default('');
+            $table->string('email');
+            $table->text('message');
 
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class Testimonials extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('testimonials');
+        Schema::dropIfExists('form');
     }
 }

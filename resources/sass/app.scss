@@ -269,6 +269,9 @@ body {
         box-shadow: -9px 11px 47px -27px rgba(0, 0, 0, 0.75);
         margin-bottom: 30px;
         height: 270px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
         .hover-block{
           transition: .3s;
           height: 270px;
@@ -417,7 +420,7 @@ body {
     padding: 40px 0;
     .hire-block{
       width: 80%;
-      margin: 0 auto;
+      margin: 30px auto 0;
       form{
         .buttons{
           @include buttons(50%, 35px auto 0);
@@ -446,3 +449,207 @@ body {
 }
 
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  body{
+    font-size: 14px;
+    section{
+      padding: 35px 0;
+    }
+    .home{
+      height: 600px;
+      margin-bottom: -50px;
+    }
+    .about-me{
+      padding: 0;
+    }
+    .service{
+      .services{
+        margin: 45px 0;
+        .card{
+          padding: 25px 10px;
+          .card-body{
+            padding: 10px;
+            .title .p1{
+              font-size: 1.3em;
+            }
+          }
+        }
+      }
+    }
+    .portfolio{
+      .works{
+        .item{
+          height: 197px;
+          background-size: 100%;
+          .hover-block{
+            height: 197px;
+          }
+        }
+        .col-sm-12{
+          .item{
+            height: 300px;
+          }
+        }
+      }
+    }
+    .testimonials{
+      .testimonal-block{
+        .carousel {
+          .carousel-indicators{
+            bottom: -15px;
+          }
+          .carousel-inner{
+            width: 65%;
+            min-height: 335px;
+            .carousel-item{
+              .item-test{
+                padding: 20px 0;
+              }
+            }
+          }
+          .control{
+
+          }
+        }
+      }
+    }
+    footer{
+      .head .networks{
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+  body{
+    font-size: 12px;
+    header{
+      height: inherit;
+      position: inherit;
+      .logo{
+        width: 100%;
+      }
+      .menu{
+        .link{
+          a{
+            font-size: 1.25em;
+          }
+        }
+      }
+      .head{
+        .logo{
+          margin-top: 0;
+        }
+        .networks{
+          width: 100%;
+          a{
+            font-size: 1.25em;
+          }
+        }
+      }
+    }
+    .home{
+      height: 435px;
+      background-position: center center;
+      background-size: cover;
+      .content {
+        .welcome-text .text-about .p{
+          font-size: 1.25em;
+        }
+        .buttons{
+          height: 100px;
+          .btn{
+            height: 35px;
+            line-height: 1;
+          }
+        }
+      }
+    }
+    .about-me{
+      padding: 30px 0;
+      .skills{
+        .skill-bar{
+          p{
+            font-size: 1.25em;
+          }
+          .progressbar .label{
+            font-size: 1.15em;
+            height: 25px;
+            width: 25px;
+            top: -30px;
+          }
+        }
+      }
+    }
+    .service{
+      padding: 30px 0;
+      .services{
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+        margin-bottom: 0;
+        .card{
+          margin-bottom: 30px;
+          .icon{
+            width: 25%;
+          }
+          .card-body{
+            .title{
+              width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            .card-text{
+              font-size: 1.25em;
+            }
+          }
+          .foot-card{
+            .price-block{
+              width: 40%;
+              height: 50px;
+              p{
+                font-size: 2.25em;
+              }
+            }
+          }
+
+          &:hover{
+            margin-top: 0;
+          }
+        }
+      }
+      .buttons{
+        margin-top: 0;
+        .btn{
+          height: 50px;
+          line-height: 1;
+          font-size: 1.6em;
+        }
+      }
+    }
+    .benefits{
+      padding: 30px 0;
+      .benefit{
+        justify-content: center;
+        .ser-item{
+          margin-bottom: 30px;
+          padding: 25px 0;
+          .text{
+            margin: 15px auto 25px;
+            .p1{
+              font-size: 1.25em;
+            }
+          }
+        }
+      }
+    }
+    .portfolio{
+      padding: 30px 0;
+      .works{
+        justify-content: center;
+        margin-top: 40px;
+      }
+    }
+  }
+}

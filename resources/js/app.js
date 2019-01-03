@@ -110,20 +110,24 @@ jQuery(document).ready(function () {
             el.addClass('fadeOutUpBig');
         }
     );
-
+    var width = $(window).width();
     $(window).scroll(function () {
-        animateBars();
+        animateBars(width);
         //animateHeader();
     });
 
-    animateBars();
+    animateBars(width);
     //animateHeader();
 
+    $('.send-ajax').click(function() {
+        $('.alert').removeClass('d-none');
+    });
 
 });
 
-function animateBars() {
+function animateBars(width) {
     var scrollto = $('.skills.top').offset().top - $(window).height() / 1.13;
+
     if ($(window).scrollTop() >= scrollto) {
         $('.progressbar').each(function () {
             let bar = $(this).find('.bar');
@@ -131,8 +135,22 @@ function animateBars() {
             let w_prog = $(this).attr("aria-valuenow");
 
             bar.css('width', w_prog + "%");
-            label.css('left', w_prog - 2.8 + "%");
             label.html(w_prog);
+
+            if(width >= 1200) {
+                label.css('left', w_prog - 2.8 + "%");
+            }
+            else if (width >= 992 && width < 1199) {
+                label.css('left', w_prog - 3.5 + "%");
+            }
+            else if (width >= 768 && width < 992) {
+                label.css('left', w_prog - 3.8 + "%");
+            }
         });
+
+       
     }
+
+    
+    
 }
